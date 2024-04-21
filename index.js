@@ -4,8 +4,8 @@
 }; */
 
 const posts =[]; //пост состоит из заголока, текста и даты. называется объект
-const TITLE_CHARACTER_LIMIT = 10;
-const TEXT_CHARACTER_LIMIT = 20;
+const TITLE_CHARACTER_LIMIT = 100;
+const TEXT_CHARACTER_LIMIT = 200;
 
 const postTitleInputNode = document.querySelector('.js-post-title-input');
 const postTextInputNode = document.querySelector('.js-post-text-input');
