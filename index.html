@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Blog App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Приложение блог</h1>
+        <div class="row">
+            <div class="col-input">
+                <h2>Новый пост</h2>
+
+                <input autofocus maxlength="100" class="js-post-title-input post-title-input" placeholder="Заголовок"
+                    type="text">
+                <div class="charCountTitle">0/100</div>
+                <textarea autofocus maxlength="200" class="js-post-text-input post-text-input" placeholder="Текст"
+                    type="text"></textarea>
+                <div class="charCountText">0/200</div>
+
+                <button class="js-new-post-btn new-post-btn">
+                    Опубликовать</button>
+                <div class="js-characterLimit characterLimit characterLimit__hidden"></div>
+                <!--одна строка валидации события-->
+            </div>
+
+            <div class="col-output">
+                <h2>Лента</h2>
+                <div class="js-posts posts">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+<script src="index.js"></script>
+
+</html>
