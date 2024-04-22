@@ -30,13 +30,13 @@ function validation() {
     const titleLen = postTitleInputNode.value.length;
     const textLen = postTextInputNode.value.length;
 
-    if (titleLen > TITLE_CHARACTER_LIMIT) {
-        addLimit.innerText = `Заголовок больше ${TITLE_CHARACTER_LIMIT} символов`;
+    if (titleLen >= TITLE_CHARACTER_LIMIT) {
+        addLimit.innerText = `Заголовок не должен превышать ${TITLE_CHARACTER_LIMIT} символов`;
         addLimit.classList.remove('characterLimit__hidden');
     return;
  } 
-    if (textLen > TEXT_CHARACTER_LIMIT ) {
-        addLimit.innerText = `Пост больше ${TEXT_CHARACTER_LIMIT} символов`; 
+    if (textLen >= TEXT_CHARACTER_LIMIT ) {
+        addLimit.innerText = `Пост не должен превышать ${TEXT_CHARACTER_LIMIT} символов`; 
         addLimit.classList.remove('characterLimit__hidden');
     return;
  }
