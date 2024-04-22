@@ -4,8 +4,8 @@
 }; */
 
 const posts =[]; //пост состоит из заголока, текста и даты. называется объект
-const TITLE_CHARACTER_LIMIT = 100;
-const TEXT_CHARACTER_LIMIT = 200;
+const TITLE_CHARACTER_LIMIT = 20;
+const TEXT_CHARACTER_LIMIT = 40;
 
 const postTitleInputNode = document.querySelector('.js-post-title-input');
 const postTextInputNode = document.querySelector('.js-post-text-input');
@@ -29,37 +29,39 @@ postTextInputNode.addEventListener('input', validation);
 function validation() {
     const titleLen = postTitleInputNode.value.length;
     const textLen = postTextInputNode.value.length;
+
     if (titleLen > TITLE_CHARACTER_LIMIT) {
         addLimit.innerText = `Заголовок больше ${TITLE_CHARACTER_LIMIT} символов`;
         addLimit.classList.remove('characterLimit__hidden');
     return;
- }
+ } 
     if (textLen > TEXT_CHARACTER_LIMIT ) {
         addLimit.innerText = `Пост больше ${TEXT_CHARACTER_LIMIT} символов`; 
         addLimit.classList.remove('characterLimit__hidden');
     return;
  }
 addLimit.classList.add('characterLimit__hidden'); //если вышестоящие условия удовлетворены то запускаем скрыть
-};
+}
+
 
 postTitleInputNode.addEventListener('input', countTitle);
 postTextInputNode.addEventListener('input', countText);
 
 function countTitle() {
     const titleLen = postTitleInputNode.value.length;
-    charCountTitle.textContent = titleLen + "/100";
+    charCountTitle.textContent = titleLen + "/20";
     
-    if (countTitle>100) {
-        titleLen.value = titleLen.value.slice(0, 100);
+    if (titleLen>20) {
+        titleLen.value = titleLen.value.slice(0, 20);
     }
 };
 
 function countText() {
     const textLen = postTextInputNode.value.length;
-    charCountText.textContent = textLen + "/200";
+    charCountText.textContent = textLen + "/40";
 
-    if (countText>200) {
-        textLen.value = textLen.value.slice(0, 200);  
+    if (textLen>40) {
+        textLen.value = textLen.value.slice(0, 40);  
     }
 };
 
@@ -93,14 +95,13 @@ function renderPosts() {
     const posts = getPost();
     let postsHTML = '';
     posts.forEach(post => {
-    postsHTML  +=  `
+        postsHTML  +=  `
     <div class='post'>
         <p class='post__date'>${post.formattedDate}</p>
         <p class='post__title'>${post.title}</p>
         <p class='post__text'>${post.text}</p>
     </div>   
-    `
-   ;   
+    `;   
                    
 });
 
