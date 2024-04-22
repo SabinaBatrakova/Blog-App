@@ -12,8 +12,9 @@ const postTextInputNode = document.querySelector('.js-post-text-input');
 const newPostBtnNode = document.querySelector('.js-new-post-btn');
 const postsNode = document.querySelector('.js-posts');
 const addLimit = document.querySelector('.js-characterLimit');
-let charCountTitle = document.querySelector('.charCountTitle')
-let charCountText = document.querySelector('.charCountText')
+let charCountTitle = document.querySelector('.charCountTitle');
+let charCountText = document.querySelector('.charCountText');
+const deletePosts = document.querySelector('.js-delete-post-btn');
 
 
 newPostBtnNode.addEventListener('click', function() {
@@ -101,9 +102,17 @@ function renderPosts() {
         <p class='post__title'>${post.title}</p>
         <p class='post__text'>${post.text}</p>
     </div>   
-    `;   
-                   
+    `;                   
 });
 
 postsNode.innerHTML = postsHTML;
 }
+
+
+deletePosts.addEventListener('click',function() {
+
+    if (posts.length > 0) {
+    posts.pop() /* метод удаляет последний элемент массива */
+    postsNode.removeChild(postsNode.lastElementChild); /*удаление из контейнера благодаря которому отображается на странице*/
+    }
+} )

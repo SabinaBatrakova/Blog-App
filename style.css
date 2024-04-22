@@ -42,27 +42,44 @@ textarea {
     border-radius: 10px;
 }
 
-.new-post-btn {
+.new-post-btn,
+.delete-post-btn {
     width: 300px;
     height: 40px;
     margin-bottom: 20px;
     box-sizing: border-box;
     border-radius: 10px;
-    background-color: rgb(144, 168, 130);
+    background-color: rgb(147, 177, 130);
     border: none;
     color: aliceblue;
     font-size: 20px;
     text-align: center;
     font-family: "Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+
+.delete-post-btn {
+    background-color: rgb(115, 135, 104);
+    ;
+}
+
+.new-post-btn:hover {
+    background-color: rgb(198, 216, 189);
+    color: rgb(48, 71, 49);
+}
+
+.delete-post-btn:hover {
+    background-color: rgb(128, 141, 121);
+    color: rgb(48, 71, 49);
 }
 
 .row {
     display: flex;
-    gap: 50px;
+    gap: 40px;
 }
 
 .posts {
-    width: 400px;
+    width: 500px;
 }
 
 .col-output {
@@ -95,7 +112,8 @@ textarea {
         width: 100%;
     }
 
-    .new-post-btn {
+    .new-post-btn,
+    .delete-post-btn {
         width: 100%;
     }
 
