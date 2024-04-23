@@ -68,16 +68,14 @@ function countText() {
 function getPostFromUser() {
     const title = postTitleInputNode.value; // получить данные из поля ввода
     const text = postTextInputNode.value;
-    if (!postTitleInputNode.value ) {
+
+    if (!postTitleInputNode.value & !postTextInputNode.value) {
         return;
     } 
 
-    if (!postTextInputNode.value ) {
-        return;
-    } 
     postTitleInputNode.value = "";
     postTextInputNode.value = "";
-    
+
     return {
         title:title,
         text:text
