@@ -15,6 +15,7 @@ const addLimit = document.querySelector('.js-characterLimit');
 let charCountTitle = document.querySelector('.charCountTitle');
 let charCountText = document.querySelector('.charCountText');
 const deletePosts = document.querySelector('.js-delete-post-btn');
+const formClear = document.getElementById('.form')
 
 
 newPostBtnNode.addEventListener('click', function() {
@@ -22,7 +23,6 @@ newPostBtnNode.addEventListener('click', function() {
     addPost(postFromUser);
     renderPosts();
 });
-
 
 postTitleInputNode.addEventListener('input', validation);
 postTextInputNode.addEventListener('input', validation);
@@ -43,7 +43,6 @@ function validation() {
  }
 addLimit.classList.add('characterLimit__hidden'); //если вышестоящие условия удовлетворены то запускаем скрыть
 }
-
 
 postTitleInputNode.addEventListener('input', countTitle);
 postTextInputNode.addEventListener('input', countText);
@@ -69,11 +68,22 @@ function countText() {
 function getPostFromUser() {
     const title = postTitleInputNode.value; // получить данные из поля ввода
     const text = postTextInputNode.value;
-        
+    if (!postTitleInputNode.value ) {
+        return;
+    } 
+
+    if (!postTextInputNode.value ) {
+        return;
+    } 
+    postTitleInputNode.value = "";
+    postTextInputNode.value = "";
+    
     return {
         title:title,
         text:text
     };
+
+    
 }
 
 function addPost({title, text}) {
@@ -108,11 +118,15 @@ function renderPosts() {
 postsNode.innerHTML = postsHTML;
 }
 
-
 deletePosts.addEventListener('click',function() {
-
     if (posts.length > 0) {
     posts.pop() /* метод удаляет последний элемент массива */
     postsNode.removeChild(postsNode.lastElementChild); /*удаление из контейнера благодаря которому отображается на странице*/
     }
-} )
+})
+/*
+formClear.addEventListener('submit', function(event) {
+    event.preventDefault(); /*Предотвращаем отправку формы
+    textLen.value='';
+
+})*/
